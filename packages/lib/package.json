@@ -1,0 +1,24 @@
+{
+  "name": "@repo/lib",
+  "version": "0.0.0",
+  "type": "module",
+  "private": true,
+  "exports": {
+    "./assertions": "./src/assertions.ts",
+    "./helpers": "./src/helpers.ts"
+  },
+  "scripts": {
+    "clean": "git clean -xdf .turbo node_modules"
+  },
+  "dependencies": {
+    "@scure/base": "~1.1.9",
+    "@sindresorhus/transliterate": "~1.6.0"
+  },
+  "devDependencies": {
+    "@repo/eslint": "workspace:*",
+    "@repo/tsconfig": "workspace:*",
+    "@types/node": "catalog:",
+    "typescript": "catalog:",
+    "zod": "catalog:"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "root": true,
+  "extends": ["@repo/eslint/library"],
+  "parser": "@typescript-eslint/parser"
+}

@@ -1,0 +1,21 @@
+packages:
+  - apps/*
+  - packages/*
+  - tools/*
+
+catalog:
+  # ecosystem
+  'next': '~15.0.3'
+  'react': '19.0.0-rc-66855b96-20241106'
+  'react-dom': '19.0.0-rc-66855b96-20241106'
+  # styling
+  'autoprefixer': '~10.4.20'
+  'postcss': '~8.4.49'
+  'tailwindcss': '~3.4.15'
+  'sass': '~1.78.0'
+  # typings
+  '@types/node': '~20.17.6'
+  '@types/react': '~18.3.11'
+  '@types/react-dom': '~18.3.1'
+  'typescript': '~5.5.4'
+  'zod': '~3.23.8'

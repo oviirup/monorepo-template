@@ -1,5 +1,5 @@
 {
-  "name": "@repo/eslint",
+  "name": "@repo/eslint-config",
   "private": true,
   "scripts": {
     "clean": "git clean -xdf node_modules"

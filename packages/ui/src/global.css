@@ -69,6 +69,6 @@
     @apply border-border;
   }
   :root {
-    @apply text-foreground bg-background scroll-smooth;
+    @apply scroll-smooth bg-background text-foreground;
   }
 }

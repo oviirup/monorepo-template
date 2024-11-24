@@ -6,6 +6,8 @@ const nextConfig: NextConfig = {
   typescript: { ignoreBuildErrors: true },
   //enable fetch logging
   logging: { fetches: { fullUrl: true, hmrRefreshes: true } },
+  // transpile workspace packages
+  transpilePackages: ['@repo/ui', '@repo/lib'],
 };
 
 export default nextConfig;

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { cn } from '@repo/ui/utils';
+
 import '@repo/ui/global.css';
 
 export const inter = Inter({

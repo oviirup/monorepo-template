@@ -18,7 +18,7 @@
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
-    "package.json": ".nvmrc, .npm*, pnpm-*",
+    "package.json": ".nvmrc, .npm*, bun.lockb",
     "*.js": "$(capture).cjs, $(capture).*.js, $(capture).d.ts",
     "*.ts": "$(capture).js, $(capture).*.ts, $(capture).*.js,"
   },

@@ -14,22 +14,22 @@
   },
   "dependencies": {
     "@repo/lib": "workspace:*",
-    "class-variance-authority": "~0.7.0",
-    "react": "catalog:",
-    "react-dom": "catalog:",
-    "tailwind-merge": "~2.5.4"
+    "class-variance-authority": "~0.7.1",
+    "react": "19.0.0-rc-66855b96-20241106",
+    "react-dom": "19.0.0-rc-66855b96-20241106",
+    "tailwind-merge": "~2.5.5"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/prettier": "workspace:*",
     "@repo/tsconfig": "workspace:*",
-    "@types/node": "catalog:",
-    "@types/react": "catalog:",
-    "@types/react-dom": "catalog:",
-    "autoprefixer": "catalog:",
-    "postcss": "catalog:",
-    "tailwindcss": "catalog:",
+    "@types/node": "~20.17.9",
+    "@types/react": "~18.3.12",
+    "@types/react-dom": "~18.3.1",
+    "autoprefixer": "~10.4.20",
+    "postcss": "~8.4.49",
+    "tailwindcss": "~3.4.15",
     "tailwindcss-pluggables": "~1.0.4",
-    "typescript": "catalog:"
+    "typescript": "~5.5.4"
   }
 }

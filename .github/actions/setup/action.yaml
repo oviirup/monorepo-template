@@ -1,19 +1,20 @@
 name: Setup
-description: Setup ci environment with cache
+description: Setup CI environment with cache
 
 runs:
   using: composite
   steps:
-    - name: 🟡 Setup pnpm
-      uses: pnpm/action-setup@v4
+    - name: 🟡 Cache Bun dependencies
+      uses: actions/cache@v4
       with:
-        version: 9.4.0
-        run_install: false
-    - name: 🟢 Setup node
-      uses: actions/setup-node@v4
-      with:
-        node-version: 20.x
-        cache: 'pnpm'
+        path: ~/.bun/install/cache
+        key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
+        restore-keys: |
+          ${{ runner.os }}-bun-
+
+    - name: 🟢 Setup Bun
+      uses: oven-sh/setup-bun@v2
+
     - name: ⚙️ Install dependencies
       shell: bash
-      run: pnpm install
+      run: bun install

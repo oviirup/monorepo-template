@@ -2,7 +2,7 @@
   "name": "@repo/eslint-config",
   "private": true,
   "scripts": {
-    "clean": "git clean -xdf node_modules"
+    "clean": "npx rimraf node_modules"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "~8.14.0",

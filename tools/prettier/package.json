@@ -3,7 +3,7 @@
   "private": true,
   "main": "./prettier.config.js",
   "scripts": {
-    "clean": "git clean -xdf node_modules"
+    "clean": "npx rimraf node_modules"
   },
   "devDependencies": {
     "prettier": "~3.3.3",

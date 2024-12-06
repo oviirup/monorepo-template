@@ -8,7 +8,7 @@
     "./helpers": "./src/helpers.ts"
   },
   "scripts": {
-    "clean": "git clean -xdf .turbo node_modules",
+    "clean": "npx rimraf node_modules .turbo",
     "lint": "eslint src --max-warnings 0",
     "test": "vitest --run"
   },

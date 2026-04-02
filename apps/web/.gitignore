@@ -1,6 +1,10 @@
+# next js assets
 .next
-.turbo
-.vercel
+
+# static
 out
+dist
+
+# typescript
 *.tsbuildinfo
 next-env.d.ts

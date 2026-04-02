@@ -1,0 +1,29 @@
+{
+  "$schema": "../../node_modules/@biomejs/biome/configuration_schema.json",
+  "extends": "//",
+  "linter": {
+    "enabled": true,
+    "domains": {
+      "next": "recommended",
+      "react": "recommended"
+    },
+    "rules": {
+      "suspicious": {
+        "noConsole": {
+          "fix": "none",
+          "level": "warn",
+          "options": { "allow": ["warn", "error", "info", "assert"] }
+        },
+        "noDuplicateCustomProperties": "off",
+        "noDuplicateProperties": "off"
+      },
+      "nursery": {
+        "useSortedClasses": {
+          "fix": "safe",
+          "level": "warn",
+          "options": { "functions": ["cva", "tv", "cn", "cx"] }
+        }
+      }
+    }
+  }
+}

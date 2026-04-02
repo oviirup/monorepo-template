@@ -10,7 +10,7 @@
   "scripts": {
     "clean": "npx rimraf node_modules .turbo",
     "lint": "eslint src --max-warnings 0",
-    "test": "vitest --run"
+    "test": "bun test"
   },
   "dependencies": {
     "@scure/base": "~1.1.9",

@@ -6,7 +6,7 @@ import {
   isFunction,
   isObject,
 } from '@/assertions';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it } from 'bun:test';
 
 // Adjust the path as needed
 

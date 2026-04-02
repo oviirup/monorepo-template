@@ -8,6 +8,9 @@
       "react": "recommended"
     },
     "rules": {
+      "a11y": {
+        "recommended": false
+      },
       "suspicious": {
         "noConsole": {
           "fix": "none",

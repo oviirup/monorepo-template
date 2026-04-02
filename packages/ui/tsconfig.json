@@ -2,8 +2,9 @@
   "extends": "@repo/config/tsconfig.react.json",
   "compilerOptions": {
     "moduleResolution": "bundler",
-    "paths": { "@/*": ["./src/*"] }
+    "paths": { "@repo/ui/*": ["./src/*"] },
+    "jsx": "react-jsx"
   },
-  "include": ["src/**/*.ts", "tests/**/*.ts"],
+  "include": ["**/*.ts", "src/**/*.tsx", "tests/**/*.ts"],
   "exclude": ["node_modules"]
 }

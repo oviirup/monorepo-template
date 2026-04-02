@@ -1,41 +1,54 @@
-import { isArray } from '@repo/lib/assertions';
-import { ClassNameValue, twMerge } from 'tailwind-merge';
+import { isFunction, isObject } from "@oviirup/utils/assertions";
+import { twJoin, twMerge } from "tailwind-merge";
+import { createTV, type VariantProps } from "tailwind-variants/lite";
 
-/**
- * Creates a formatted className from given arguments
- *
- * @param args - String, array, or object
- * @returns Sanitized class-names
- */
-export function cn(...args: ClassNameValue[]) {
-  if (!args.length) throw new Error('No argument is used');
-  const names: string[] = [];
-  args.forEach((arg) => {
-    if (!arg) return;
-    const argType = arg?.constructor;
-    if (argType === String || argType === Number) {
-      names.push(arg.toString());
-    } else if (isArray(arg)) {
-      const inner = cn(...arg);
-      if (inner) names.push(inner);
-    } else if (argType === Object) {
-      const entries = Object.entries(arg);
-      entries.map(([key, value]) => Boolean(value) && names.push(key));
-    }
-    return;
-  });
-  return twMerge(names);
+/** Creates a formatted className from given arguments */
+export function cn(...args: any[]) {
+  return twMerge(twJoin(...args));
 }
 
-type PossibleRef<El> = React.ForwardedRef<El> | undefined;
-/** Use multiple refs on a single element */
-export function referrals<El>(...refs: PossibleRef<El>[]) {
-  if (!refs.length) return;
-  return (el: El) => {
-    for (const ref of refs) {
-      if (!ref) continue;
-      else if (typeof ref === 'function') ref(el);
-      else ref.current = el;
-    }
+export const tv = createTV();
+export namespace tv {
+  export type Props<T extends (...args: any[]) => any> = VariantProps<T>;
+}
+
+/** Combines multiple React refs into a single ref callback function */
+export function composeRefs<T>(
+  ...refs: Array<React.Ref<T> | undefined>
+): React.RefCallback<T> {
+  return (el) => {
+    const cleanups = refs
+      .map((ref) => {
+        if (isFunction(ref)) return ref(el);
+        if (isObject(ref)) ref.current = el;
+        return null;
+      })
+      .filter(isFunction);
+    // run cleanup functions if any were provided
+    return () => {
+      if (cleanups.length === 0) return;
+      for (const cleanup of cleanups) cleanup();
+    };
   };
+}
+
+/** Combines multiple event handlers in one */
+export function composeEventHandlers(
+  original: React.EventHandler<any> | undefined,
+  custom: React.EventHandler<any> | undefined,
+  checkIsAllowed = true,
+) {
+  return (event: any) => {
+    original?.(event);
+    const isAllowed = !checkIsAllowed || !event?.defaultPrevented;
+    if (isAllowed) custom?.(event);
+  };
+}
+
+/** Applies a React SetStateAction to a previous state value */
+export function resolveStateAction<T>(
+  action: React.SetStateAction<T>,
+  prev: T,
+) {
+  return isFunction(action) ? action(prev) : action;
 }

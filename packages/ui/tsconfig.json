@@ -1,6 +1,7 @@
 {
   "extends": "@repo/config/tsconfig.react.json",
   "compilerOptions": {
+    "moduleResolution": "bundler",
     "paths": { "@/*": ["./src/*"] }
   },
   "include": ["src/**/*.ts", "tests/**/*.ts"],

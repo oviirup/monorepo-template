@@ -1,3 +1,7 @@
+"use client";
+import { Button } from "@repo/ui/components/button";
+import { ThemeToggle } from "@/components/theme";
+
 export default function HomePage() {
   return (
     <main className="flex h-svh grow flex-col items-center justify-center gap-6">
@@ -7,6 +11,9 @@ export default function HomePage() {
           BETA
         </span>
       </h1>
+      <div>
+        <ThemeToggle render={<Button />}>Toggle Theme</ThemeToggle>
+      </div>
     </main>
   );
 }

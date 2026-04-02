@@ -2,21 +2,15 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug full-stack",
+      "name": "debug apps/web",
       "type": "node-terminal",
       "request": "launch",
-      "command": "pnpm run dev",
-      "skipFiles": ["<node_internals>/**", ".next", ".velite"],
-      "env": {
-        "NODE_OPTIONS": "--inspect"
-      },
+      "command": "bun run dev -- --inspect",
       "cwd": "${workspaceFolder}/apps/web",
       "serverReadyAction": {
-        "action": "debugWithChrome",
-        "killOnServerStop": true,
-        "pattern": "- Local:\\s+(https?://.+)",
-        "uriFormat": "%s",
-        "webRoot": "${workspaceFolder}"
+        "action": "openExternally",
+        "pattern": "- Local:.+(https?://.+)",
+        "uriFormat": "%s"
       }
     }
   ]
